@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelElements/GroundFlatStyle2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/LevelElements/GroundFlatStyle1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/LevelElements/GroundFlatStyle3.tscn" type="PackedScene" id=4]
+
+[node name="SceneMoonTemplate" type="Node2D"]
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="GroundFlatStyle1" parent="Ground" instance=ExtResource( 3 )]
+
+[node name="GroundFlatStyle2" parent="Ground" instance=ExtResource( 1 )]
+position = Vector2( 2048, 0 )
+
+[node name="GroundFlatStyle3" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 4096, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
