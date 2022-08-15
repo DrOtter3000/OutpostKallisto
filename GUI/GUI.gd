@@ -18,3 +18,10 @@ func update_oxygen(act, maximum):
 func update_health(act, maximum):
 	$Control/GridContainer/HealthBar.value = act
 	$Control/GridContainer/HealthBar.max_value = maximum
+
+
+func update_weapon_status(status):
+	if status == true:
+		$Control/LeftBottom/WeaponStatusLight.play("reload")
+	else: 
+		$Control/LeftBottom/WeaponStatusLight.play("ready")
