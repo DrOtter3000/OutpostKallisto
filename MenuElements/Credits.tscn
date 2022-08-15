@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Credits" type="Control"]
+
+[node name="LblSoundEffects" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Sound Effects:"
+
+[node name="LblPlasmasound" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "dklon (https://opengameart.org/users/dklon)"
