@@ -30,6 +30,8 @@ func _physics_process(delta):
 	apply_gravity()
 	check_for_input()
 	set_correct_JetpackTimer()
+	check_for_flip()
+	arm_movement()
 	velocity = move_and_slide(velocity, UP)
 
 
@@ -46,9 +48,10 @@ func check_for_firing():
 
 
 func fire():
-	var b = Plasmashoot.instance()
-	owner.add_child(b)
-	b.transform = $EndOfGunPosition.global_transform
+	$FiringSound.play()
+	var shoot = Plasmashoot.instance()
+	owner.add_child(shoot)
+	shoot.transform = $Arm/EndOfGunPosition.global_transform
 	weapon_in_cooldown = true
 	$WeaponTimer.start()
 
@@ -119,3 +122,19 @@ func _on_OxygenTimer_timeout():
 
 func _on_WeaponTimer_timeout():
 	weapon_in_cooldown = false
+
+
+func check_for_flip():
+	if get_global_mouse_position().x < global_position.x:
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.flip_h = false
+
+
+func arm_movement():
+	$Arm.look_at(get_global_mouse_position())
+	if get_global_mouse_position().x < $Arm.global_position.x:
+		$Arm.flip_v = true
+	else:
+		$Arm.flip_v = false
+
