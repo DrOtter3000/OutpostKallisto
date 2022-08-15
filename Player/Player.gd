@@ -138,3 +138,6 @@ func arm_movement():
 	else:
 		$Arm.flip_v = false
 
+
+func hurt(damage):
+	health -= damage
