@@ -5,7 +5,7 @@ const GRAVITY = 3
 export (PackedScene) var Plasmashoot
 var velocity = Vector2.ZERO
 var input = Vector2.ZERO
-var max_speed = 180
+var max_speed = 200
 var acceleration = 20
 var friction = 10
 var jetpack_energy = 10		#the fuel of the jetpack
@@ -32,7 +32,13 @@ func _physics_process(delta):
 	set_correct_JetpackTimer()
 	check_for_flip()
 	arm_movement()
+	check_health()
 	velocity = move_and_slide(velocity, UP)
+
+
+func check_health():
+	if health <= 0:
+		pass
 
 
 func check_for_input():
